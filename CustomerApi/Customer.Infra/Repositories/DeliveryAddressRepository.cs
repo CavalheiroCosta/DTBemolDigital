@@ -19,8 +19,8 @@ namespace Customer.Infra.Repositories
         {
             var gettedAddress = await _viaCepClient.GetAddressDataAsync(cep.Number);
 
-            return gettedAddress.erro ? 
-                throw new ExternalAddressNotFoundException(cep.Number) : 
+            return gettedAddress.erro ?
+                throw new ExternalAddressNotFoundException(cep.Number) :
                 new DeliveryAddress(cep, gettedAddress.Logradouro, gettedAddress.bairro, gettedAddress.localidade, gettedAddress.uf);
         }
     }

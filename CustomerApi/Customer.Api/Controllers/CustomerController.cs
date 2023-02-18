@@ -1,7 +1,5 @@
 ﻿using Customer.Domain.Interfaces.Services;
 using Customer.Domain.Responses;
-using Customer.Domain.ValueObjects;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Customer.Api.Controllers
@@ -29,7 +27,7 @@ namespace Customer.Api.Controllers
         [HttpGet("/delivery-address/cep")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AddressDetailResponse))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> CreateCustomer([FromQuery]string cep)
+        public async Task<IActionResult> CreateCustomer([FromQuery] string cep)
         {
             return Ok(await _deliveryAddressService.GetAddressDetailFromCepAsync(cep));
         }

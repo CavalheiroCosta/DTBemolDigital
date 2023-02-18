@@ -11,18 +11,18 @@ namespace Customer.Domain.ValueObjects
         public Cep(string cep)
         {
             var onlyNumbersOfCep = GetOnlyNumbersOfCep(cep);
-            Number = IsValidCep(onlyNumbersOfCep) ? onlyNumbersOfCep : throw new DomainException(ExpectedErrorMessages.InvalidCep()); 
+            Number = IsValidCep(onlyNumbersOfCep) ? onlyNumbersOfCep : throw new DomainException(ExpectedErrorMessages.InvalidCep());
         }
 
-        private bool IsValidCep(string cep) 
+        private bool IsValidCep(string cep)
         {
             var validateRegex = new Regex(@"^[0-9]{8}$");
             return validateRegex.IsMatch(cep);
         }
 
-        private string GetOnlyNumbersOfCep(string cep) 
+        private string GetOnlyNumbersOfCep(string cep)
         {
-            return cep.Trim().Replace(".",string.Empty).Replace("-", string.Empty);
+            return cep.Trim().Replace(".", string.Empty).Replace("-", string.Empty);
         }
     }
 }

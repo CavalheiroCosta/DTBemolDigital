@@ -1,10 +1,5 @@
 ﻿using Customer.Domain.Responses;
 using Customer.Domain.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Customer.Domain.Aggregates
 {
@@ -23,7 +18,7 @@ namespace Customer.Domain.Aggregates
             Reference = reference;
         }
 
-        public DeliveryAddress(Cep cep, string address, string neighborhood, string city, string state) 
+        public DeliveryAddress(Cep cep, string address, string neighborhood, string city, string state)
         {
             Cep = cep;
             Address = address;
