@@ -11,7 +11,7 @@ namespace Customer.Domain.ValueObjects
         public Cep(string cep)
         {
             var onlyNumbersOfCep = GetOnlyNumbersOfCep(cep);
-            Number = IsValidCep(onlyNumbersOfCep) ? onlyNumbersOfCep : throw new DomainException(ErrorMessages.InvalidCep()); 
+            Number = IsValidCep(onlyNumbersOfCep) ? onlyNumbersOfCep : throw new DomainException(ExpectedErrorMessages.InvalidCep()); 
         }
 
         private bool IsValidCep(string cep) 

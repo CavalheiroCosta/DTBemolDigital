@@ -23,6 +23,15 @@ namespace Customer.Domain.Aggregates
             Reference = reference;
         }
 
+        public DeliveryAddress(Cep cep, string address, string neighborhood, string city, string state) 
+        {
+            Cep = cep;
+            Address = address;
+            Neighborhood = neighborhood;
+            City = city;
+            State = state;
+        }
+
         public string Identifier { get; set; }
         public Cep Cep { get; set; }
         public string Address { get; set; }
