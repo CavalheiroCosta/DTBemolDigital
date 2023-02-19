@@ -11,10 +11,10 @@ namespace Customer.Domain.Requests
     public class CreateDeliveryAddressRequest
     {
         public string Cep { get; set; }
-        public string AddressIdentifier { get; set; }
-        public string AddressNumber { get; set; }
-        public string AddressComplement { get; set; }
-        public string AddressReference { get; set; }
+        public string Identifier { get; set; }
+        public string Number { get; set; }
+        public string Complement { get; set; }
+        public string Reference { get; set; }
     }
 
     public class CreateDeliveryAddressRequestValidator : AbstractValidator<CreateDeliveryAddressRequest>
@@ -22,9 +22,9 @@ namespace Customer.Domain.Requests
         public CreateDeliveryAddressRequestValidator()
         {
             RuleFor(p => p.Cep).NotEmpty().WithMessage(ConfigurationErrorMessages.EmptyField("Name"));
-            RuleFor(p => p.AddressIdentifier).NotEmpty().WithMessage(ConfigurationErrorMessages.EmptyField("Name"));
-            RuleFor(p => p.AddressNumber).NotEmpty().WithMessage(ConfigurationErrorMessages.EmptyField("Name"));
-            RuleFor(p => p.AddressComplement).NotEmpty().WithMessage(ConfigurationErrorMessages.EmptyField("Name"));
+            RuleFor(p => p.Identifier).NotEmpty().WithMessage(ConfigurationErrorMessages.EmptyField("Name"));
+            RuleFor(p => p.Number).NotEmpty().WithMessage(ConfigurationErrorMessages.EmptyField("Name"));
+            RuleFor(p => p.Complement).NotEmpty().WithMessage(ConfigurationErrorMessages.EmptyField("Name"));
         }
     }
 }

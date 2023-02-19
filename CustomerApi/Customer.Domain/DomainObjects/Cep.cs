@@ -7,8 +7,9 @@ namespace Customer.Domain.DomainObjects
 {
     public class Cep
     {
-        public string Value { get; }
+        public string Value { get; private set; }
 
+        protected Cep() { }
         public Cep(string cep)
         {
             Value = IsValidCep(cep) ? 

@@ -50,7 +50,7 @@ namespace Customer.Domain.Services
         private async Task<DeliveryAddress> GetAddres(CreateDeliveryAddressRequest request)
         {
             var address = await _deliveryAddressService.GetAddressAsync(request.Cep);
-            address.AddComplements(request.AddressIdentifier, request.AddressComplement, request.AddressReference);
+            address.AddComplements(request.Identifier, request.Complement, request.Reference);
             return address;
         }
 

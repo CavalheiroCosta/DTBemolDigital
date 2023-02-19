@@ -35,12 +35,12 @@ namespace Customer.Infra.Repositories
 
         public async Task<Company> GetCompanyAsync(Cnpj cnpj)
         {
-            return await _customerContext.Companies.FirstOrDefaultAsync(company => company.Cnpj == cnpj);
+            return await _customerContext.Companies.FirstOrDefaultAsync(company => company.Cnpj.Value == cnpj.Value);
         }
 
         public async Task<Person> GetPersonAsync(Cpf cpf)
         {
-            return await _customerContext.Persons.FirstOrDefaultAsync(person => person.Cpf == cpf);
+            return await _customerContext.Persons.FirstOrDefaultAsync(person => person.Cpf.Value == cpf.Value);
         }
     }
 }

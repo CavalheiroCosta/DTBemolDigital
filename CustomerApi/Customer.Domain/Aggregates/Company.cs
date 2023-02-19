@@ -1,14 +1,11 @@
 ﻿using Customer.Domain.DomainObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Customer.Domain.Aggregates
 {
     public class Company
     {
+
+        protected Company() { } 
         public Company(Guid id, string name, string corporateName, string cnpj, string email, Guid deliveryAddresId)
         {
             Id = id;
@@ -19,8 +16,19 @@ namespace Customer.Domain.Aggregates
             DeliveryAddresId = deliveryAddresId;
         }
 
+        public Company(Guid id, string name, string corporateName, Cnpj cnpj, Email email, Guid deliveryAddresId)
+        {
+            Id = id;
+            Name = name;
+            CorporateName = corporateName;
+            Cnpj = cnpj;
+            Email = email;
+            DeliveryAddresId = deliveryAddresId;
+        }
+
         public Company(string name, string corporateName, string cnpj, string email, DeliveryAddress deliveryAddress) 
         {
+            Id = Guid.NewGuid();
             Name = name;
             CorporateName = corporateName;
             Cnpj = new Cnpj(cnpj);
@@ -29,7 +37,7 @@ namespace Customer.Domain.Aggregates
             DeliveryAddress = deliveryAddress;
         }
 
-        public Guid Id { get; private set; } = Guid.NewGuid();
+        public Guid Id { get; private set; }
         public string Name { get; private set; }
         public string CorporateName { get; private set; }
         public Cnpj Cnpj { get; private set; }

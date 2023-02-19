@@ -16,8 +16,9 @@ namespace Customer.Domain.DomainObjects
         private readonly int[] _firstMultiplier = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
         private readonly int[] _secondMultiplier = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
 
-        public string Value { get; }
+        public string Value { get; private set; }
 
+        protected Cnpj() { }
         public Cnpj(string cnpj) {
             Value = IsValidCnpj(cnpj) ? cnpj : throw new DomainException(ExpectedErrorMessages.InvalidOfficialDocument("CNPJ"));
         }

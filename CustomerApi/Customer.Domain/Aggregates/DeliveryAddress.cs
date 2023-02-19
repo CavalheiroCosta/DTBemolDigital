@@ -5,8 +5,10 @@ namespace Customer.Domain.Aggregates
 {
     public class DeliveryAddress
     {
+        protected DeliveryAddress() { }
         public DeliveryAddress(string identifier, string cep, string address, long number, string neighborhood, string city, string state, string complement, string reference)
         {
+            Id = Guid.NewGuid();
             Identifier = identifier;
             Cep = new Cep(cep);
             Address = address;
@@ -27,7 +29,7 @@ namespace Customer.Domain.Aggregates
             State = state;
         }
 
-        public Guid Id { get; private set; } = Guid.NewGuid();
+        public Guid Id { get; private set; }
         public string Identifier { get; private set; } = string.Empty;
         public Cep Cep { get; private set; }
         public string Address { get; private set; }

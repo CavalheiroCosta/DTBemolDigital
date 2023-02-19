@@ -16,8 +16,9 @@ namespace Customer.Domain.DomainObjects
         private readonly int[] _firstMultiplier = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
         private readonly int[] _secondMultiplier = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
 
-        public string Value { get; }
-        
+        public string Value { get; private set; }
+
+        protected Cpf() { }
         public Cpf(string cpf){
             Value = IsValidCpf(cpf) ? cpf : throw new DomainException(ExpectedErrorMessages.InvalidOfficialDocument("CPF"));
         }

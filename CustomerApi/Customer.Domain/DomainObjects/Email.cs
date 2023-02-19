@@ -11,8 +11,8 @@ namespace Customer.Domain.DomainObjects
     public class Email
     {
         private readonly string[] _acceptedSuffix = { "com", "net", "org", "dev", "gov"};
-        public string Value { get; }
-
+        public string Value { get; private set; }
+        protected Email() { }
         public Email(string email) 
         {
             Value = IsValidEmail(email) ? email.ToLower() : throw new DomainException(ExpectedErrorMessages.InvalidOfficialDocument("Email"));
