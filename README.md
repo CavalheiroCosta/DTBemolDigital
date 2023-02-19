@@ -24,10 +24,10 @@ Foram implementados três features:
   "cpf": "string",
   "email": "string",
   "deliveryAddress": {
-   		 "cep": "string",
-   		 "identifier": "string",
-   		 "number": "string",
-   		"complement": "string",
+   	"cep": "string",
+   	"identifier": "string",
+   	"number": "string",
+   	"complement": "string",
     	"reference": "string"
   	}
 }
