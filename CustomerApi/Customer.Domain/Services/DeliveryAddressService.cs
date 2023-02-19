@@ -1,4 +1,5 @@
 ﻿
+using Customer.Domain.Aggregates;
 using Customer.Domain.DomainObjects;
 using Customer.Domain.Interfaces.Repository;
 using Customer.Domain.Interfaces.Services;
@@ -15,13 +16,12 @@ namespace Customer.Domain.Services
             _deliveryAddressRepository = deliveryAddressRepository;
         }
 
-        public async Task<AddressDetailResponse> GetAddressAsync(Cep cep)
+        public async Task<DeliveryAddress> GetAddressAsync(Cep cep)
         {
-            var deliveryAddress = await _deliveryAddressRepository.GetAddressAsync(cep);
-            return deliveryAddress.GetAddressDetail();
+            return await _deliveryAddressRepository.GetAddressAsync(cep);
         }
 
-        public Task<AddressDetailResponse> GetAddressAsync(string cep)
+        public Task<DeliveryAddress> GetAddressAsync(string cep)
         {
             return GetAddressAsync(new Cep(cep));
         }

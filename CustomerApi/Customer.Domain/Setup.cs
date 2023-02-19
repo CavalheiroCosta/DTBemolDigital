@@ -9,6 +9,7 @@ namespace Customer.Domain
         public static void AddDomain(this IServiceCollection services)
         {
             services.AddScoped<IDeliveryAddressService, DeliveryAddressService>();
+            services.AddScoped<ICustomerService, CustomerService>();
         }
 
     }

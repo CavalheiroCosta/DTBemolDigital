@@ -43,5 +43,12 @@ namespace Customer.Domain.Aggregates
             return new AddressDetailResponse(Cep.Value, Address, Neighborhood, City, State);
         }
 
+        public void AddComplements(string identifier, string complement, string reference) 
+        {
+            Identifier = identifier;
+            Complement = complement;
+            Reference = reference;
+        }
+
     }
 }
