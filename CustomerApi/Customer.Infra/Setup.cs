@@ -12,6 +12,7 @@ namespace Customer.Infra
         {
             services.ConfigureHttpClients(configuration);
             services.AddScoped<IDeliveryAddressRepository, DeliveryAddressRepository>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
         }
     }
 }
