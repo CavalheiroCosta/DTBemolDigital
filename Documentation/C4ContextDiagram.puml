@@ -2,7 +2,7 @@
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
 title Diagrama de Contexto omnichannel parcial
-LAYOUT_WITH_LEGEND()
+'LAYOUT_WITH_LEGEND()
 SHOW_PERSON_PORTRAIT()
 
 Person(cliente, "Cliente", "Cliente bemol, que utiliza os canais disponibilizados pela empresa")
