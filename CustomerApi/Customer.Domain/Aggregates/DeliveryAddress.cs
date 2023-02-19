@@ -27,6 +27,7 @@ namespace Customer.Domain.Aggregates
             State = state;
         }
 
+        public Guid Id { get; private set; } = Guid.NewGuid();
         public string Identifier { get; private set; } = string.Empty;
         public Cep Cep { get; private set; }
         public string Address { get; private set; }
