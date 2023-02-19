@@ -5,9 +5,9 @@ using Customer.Domain.Responses;
 
 namespace Customer.Domain.Interfaces.Services
 {
-    public interface IDeliveryAddressService
+    public interface IAddressService
     {
-        Task<DeliveryAddress> GetAddressAsync(Cep cep);
-        Task<DeliveryAddress> GetAddressAsync(string cep);
+        Task<Address> GetAddressAsync(Cep cep);
+        Task<Address> GetAddressAsync(string cep);
     }
 }

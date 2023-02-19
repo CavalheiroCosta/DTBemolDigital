@@ -3,8 +3,8 @@ using Customer.Domain.DomainObjects;
 
 namespace Customer.Domain.Interfaces.Repository
 {
-    public interface IDeliveryAddressRepository
+    public interface IAddressRepository
     {
-        Task<DeliveryAddress> GetAddressAsync(Cep cep);
+        Task<Address> GetAddressAsync(Cep cep);
     }
 }

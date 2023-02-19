@@ -16,10 +16,10 @@ namespace Customer.Domain.Services
 {
     public class CustomerService : ICustomerService
     {
-        private readonly IDeliveryAddressService _deliveryAddressService;
+        private readonly IAddressService _deliveryAddressService;
         private readonly ICustomerRepository _customerRepository;
 
-        public CustomerService(IDeliveryAddressService deliveryAddressService, ICustomerRepository customerRepository)
+        public CustomerService(IAddressService deliveryAddressService, ICustomerRepository customerRepository)
         {
             _deliveryAddressService = deliveryAddressService;
             _customerRepository = customerRepository;
@@ -47,7 +47,7 @@ namespace Customer.Domain.Services
             return await _customerRepository.CreateAsync(person);
         }
 
-        private async Task<DeliveryAddress> GetAddres(CreateDeliveryAddressRequest request)
+        private async Task<Address> GetAddres(CreateDeliveryAddressRequest request)
         {
             var address = await _deliveryAddressService.GetAddressAsync(request.Cep);
             address.AddComplements(request.Identifier, request.Complement, request.Reference);

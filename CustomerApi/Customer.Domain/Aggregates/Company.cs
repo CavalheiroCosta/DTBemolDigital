@@ -26,7 +26,7 @@ namespace Customer.Domain.Aggregates
             DeliveryAddresId = deliveryAddresId;
         }
 
-        public Company(string name, string corporateName, string cnpj, string email, DeliveryAddress deliveryAddress) 
+        public Company(string name, string corporateName, string cnpj, string email, Address deliveryAddress) 
         {
             Id = Guid.NewGuid();
             Name = name;
@@ -45,6 +45,6 @@ namespace Customer.Domain.Aggregates
         public Guid DeliveryAddresId { get; private set; }
 
 
-        public DeliveryAddress? DeliveryAddress { get; set; } = null;
+        public Address? DeliveryAddress { get; set; } = null;
     }
 }

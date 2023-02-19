@@ -7,21 +7,21 @@ using Customer.Domain.Responses;
 
 namespace Customer.Domain.Services
 {
-    public class DeliveryAddressService : IDeliveryAddressService
+    public class AddressService : IAddressService
     {
-        private readonly IDeliveryAddressRepository _deliveryAddressRepository;
+        private readonly IAddressRepository _deliveryAddressRepository;
 
-        public DeliveryAddressService(IDeliveryAddressRepository deliveryAddressRepository)
+        public AddressService(IAddressRepository deliveryAddressRepository)
         {
             _deliveryAddressRepository = deliveryAddressRepository;
         }
 
-        public async Task<DeliveryAddress> GetAddressAsync(Cep cep)
+        public async Task<Address> GetAddressAsync(Cep cep)
         {
             return await _deliveryAddressRepository.GetAddressAsync(cep);
         }
 
-        public Task<DeliveryAddress> GetAddressAsync(string cep)
+        public Task<Address> GetAddressAsync(string cep)
         {
             return GetAddressAsync(new Cep(cep));
         }

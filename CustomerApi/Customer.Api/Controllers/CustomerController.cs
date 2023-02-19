@@ -11,10 +11,10 @@ namespace Customer.Api.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        private readonly IDeliveryAddressService _deliveryAddressService;
+        private readonly IAddressService _deliveryAddressService;
         private readonly ICustomerService _customerService;
 
-        public CustomerController(IDeliveryAddressService deliveriesAddressService, ICustomerService customerService)
+        public CustomerController(IAddressService deliveriesAddressService, ICustomerService customerService)
         {
             _deliveryAddressService = deliveriesAddressService;
             _customerService = customerService;
@@ -39,7 +39,7 @@ namespace Customer.Api.Controllers
         }
 
 
-        [HttpGet("/Address/{cep}")]
+        [HttpGet("Address/{cep}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AddressDetailResponse))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> CreateCustomer([FromRoute] string cep)

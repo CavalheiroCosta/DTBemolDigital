@@ -6,22 +6,22 @@ using Customer.Infra.HttpClients.ViaCep;
 
 namespace Customer.Infra.Repositories
 {
-    public class DeliveryAddressRepository : IDeliveryAddressRepository
+    public class AddressRepository : IAddressRepository
     {
         private readonly IViaCepClient _viaCepClient;
 
-        public DeliveryAddressRepository(IViaCepClient viaCepClient)
+        public AddressRepository(IViaCepClient viaCepClient)
         {
             _viaCepClient = viaCepClient;
         }
 
-        public async Task<DeliveryAddress> GetAddressAsync(Cep cep)
+        public async Task<Address> GetAddressAsync(Cep cep)
         {
             var gettedAddress = await _viaCepClient.GetAddressAsync(cep.Value);
 
             return gettedAddress.Erro ?
                 throw new ExternalAddressNotFoundException(cep.Value) :
-                new DeliveryAddress(cep, gettedAddress.Logradouro, gettedAddress.Bairro, gettedAddress.Localidade, gettedAddress.Uf);
+                new Address(cep, gettedAddress.Logradouro, gettedAddress.Bairro, gettedAddress.Localidade, gettedAddress.Uf);
         }
     }
 }

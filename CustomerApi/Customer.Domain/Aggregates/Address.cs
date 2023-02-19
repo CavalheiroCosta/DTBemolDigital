@@ -3,15 +3,15 @@ using Customer.Domain.Responses;
 
 namespace Customer.Domain.Aggregates
 {
-    public class DeliveryAddress
+    public class Address
     {
-        protected DeliveryAddress() { }
-        public DeliveryAddress(string identifier, string cep, string address, long number, string neighborhood, string city, string state, string complement, string reference)
+        protected Address() { }
+        public Address(string identifier, string cep, string addressLine, long number, string neighborhood, string city, string state, string complement, string reference)
         {
             Id = Guid.NewGuid();
             Identifier = identifier;
             Cep = new Cep(cep);
-            Address = address;
+            AddressLine = addressLine;
             Number = number;
             Neighborhood = neighborhood;
             City = city;
@@ -20,10 +20,10 @@ namespace Customer.Domain.Aggregates
             Reference = reference;
         }
 
-        public DeliveryAddress(Cep cep, string address, string neighborhood, string city, string state)
+        public Address(Cep cep, string addressLine, string neighborhood, string city, string state)
         {
             Cep = cep;
-            Address = address;
+            AddressLine = addressLine;
             Neighborhood = neighborhood;
             City = city;
             State = state;
@@ -32,7 +32,7 @@ namespace Customer.Domain.Aggregates
         public Guid Id { get; private set; }
         public string Identifier { get; private set; } = string.Empty;
         public Cep Cep { get; private set; }
-        public string Address { get; private set; }
+        public string AddressLine { get; private set; }
         public long Number { get; private set; }
         public string Neighborhood { get; private set; }
         public string City { get; private set; }
@@ -42,7 +42,7 @@ namespace Customer.Domain.Aggregates
 
         public AddressDetailResponse GetAddressDetail()
         {
-            return new AddressDetailResponse(Cep.Value, Address, Neighborhood, City, State);
+            return new AddressDetailResponse(Cep.Value, AddressLine, Neighborhood, City, State);
         }
 
         public void AddComplements(string identifier, string complement, string reference) 

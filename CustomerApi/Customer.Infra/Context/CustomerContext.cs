@@ -11,13 +11,13 @@ namespace Customer.Infra.Context
 
         }
 
-        public virtual DbSet<DeliveryAddress> DeliveryAddresses { get; set; }
+        public virtual DbSet<Address> DeliveryAddresses { get; set; }
         public virtual DbSet<Person> Persons { get; set; }
         public virtual DbSet<Company> Companies { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<DeliveryAddress>(address =>
+            modelBuilder.Entity<Address>(address =>
             {
                 address.OwnsOne(a => a.Cep, cep => cep.Property(c => c.Value).HasColumnName("cep"));
             });
