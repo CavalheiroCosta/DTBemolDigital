@@ -10,6 +10,46 @@ Neste projeto viso apresentar duas situações:
 	+ Endpoin de cadastro de cliente Pessoa Fisica e Pessoa Juridica
 
 ------------
+### Sobre a API
+No projeto consta a "CustomerApi" que foi desenvolvida utilizando [Visual Studio 2022](https://visualstudio.microsoft.com/pt-br/vs/community/ "Visual Studio 2022") em .NET 7 e utilizando Swagger para documentação parcial de api.
+
+**Sobre as features**
+Foram implementados três features:
++ Busca de dados endereços utilizando o Cep `api/Customer/Address/{Cep}` recebendo o valor do Cep pela rota.
++ Cadastro de clientes pessoa fisica através de `api/Customer/Person` recebendo json pelo body.
+```JSON
+{
+  "name": "string",
+  "birthDate": "2023-02-19T23:39:29.855Z",
+  "cpf": "string",
+  "email": "string",
+  "deliveryAddress": {
+   		 "cep": "string",
+   		 "identifier": "string",
+   		 "number": "string",
+   		"complement": "string",
+    	"reference": "string"
+  	}
+}
+```
++ Cadastro de clientes pessoa Juridica através de `api/Customer/Company` recebendo json pelo body.
+```JSON
+{
+  "name": "string",
+  "corporateName": "string",
+  "cnpj": "string",
+  "email": "string",
+  "deliveryAddress": {
+    	"cep": "string",
+    	"identifier": "string",
+    	"number": "string",
+    	"complement": "string",
+    	"reference": "string"
+  	}
+}
+```
+
+------------
 
 
 ### Documentação C4
