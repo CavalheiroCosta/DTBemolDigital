@@ -1,6 +1,8 @@
 ﻿using Customer.Domain.DomainObjects;
 using Customer.Domain.Interfaces.Services;
+using Customer.Domain.Requests;
 using Customer.Domain.Responses;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Customer.Api.Controllers
@@ -10,18 +12,30 @@ namespace Customer.Api.Controllers
     public class CustomerController : ControllerBase
     {
         private readonly IDeliveryAddressService _deliveryAddressService;
+        private readonly ICustomerService _customerService;
 
-        public CustomerController(IDeliveryAddressService deliveriesAddressService)
+        public CustomerController(IDeliveryAddressService deliveriesAddressService, ICustomerService customerService)
         {
             _deliveryAddressService = deliveriesAddressService;
+            _customerService = customerService;
         }
 
-        [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Guid))]
+        [HttpPost("Person")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Guid))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> CreateCustomer()
+        public async Task<IActionResult> CreatePersonCustomer([FromBody]CreatePersonRequest request)
         {
-            return Ok();
+            var createdPersonId = await _customerService.CreatePersonAsync(request);
+            return Ok(createdPersonId);
+        }
+
+        [HttpPost("Company")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Guid))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> CreateCompanyCustomer([FromBody] CreateCompanyRequest request)
+        {
+            var createdCompanyId = await _customerService.CreateCompanyAsync(request);
+            return Ok(createdCompanyId);
         }
 
 
@@ -30,7 +44,8 @@ namespace Customer.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> CreateCustomer([FromRoute] string cep)
         {
-            return Ok(await _deliveryAddressService.GetAddressAsync(cep));
+            var address = await _deliveryAddressService.GetAddressAsync(cep);
+            return Ok(address.GetAddressDetail());
         }
     }
 }
