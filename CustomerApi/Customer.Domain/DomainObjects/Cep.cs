@@ -1,28 +1,26 @@
 ﻿using Customer.Domain.Constants;
 using Customer.Domain.Exceptions;
+using Customer.Domain.Extensions;
 using System.Text.RegularExpressions;
 
-namespace Customer.Domain.ValueObjects
+namespace Customer.Domain.DomainObjects
 {
     public class Cep
     {
-        public string Number { get; }
+        public string Value { get; }
 
         public Cep(string cep)
         {
-            var onlyNumbersOfCep = GetOnlyNumbersOfCep(cep);
-            Number = IsValidCep(onlyNumbersOfCep) ? onlyNumbersOfCep : throw new DomainException(ExpectedErrorMessages.InvalidCep());
+            Value = IsValidCep(cep) ? 
+                cep.RemoveSpecialCaracteres() : 
+                throw new DomainException(ExpectedErrorMessages.InvalidCep());
         }
 
         private bool IsValidCep(string cep)
         {
+            cep = cep.RemoveSpecialCaracteres();
             var validateRegex = new Regex(@"^[0-9]{8}$");
             return validateRegex.IsMatch(cep);
-        }
-
-        private string GetOnlyNumbersOfCep(string cep)
-        {
-            return cep.Trim().Replace(".", string.Empty).Replace("-", string.Empty);
         }
     }
 }
