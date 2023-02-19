@@ -3,11 +3,11 @@
 
 title Diagrama de Contexto omnichannel parcial
 LAYOUT_WITH_LEGEND()
+SHOW_PERSON_PORTRAIT()
 
 Person(cliente, "Cliente", "Cliente bemol, que utiliza os canais disponibilizados pela empresa")
 
 Boundary(boundary, "Universo Bemol"){
-    'Sistemas externos'
     System_Ext(EmailApi, "Api de Email", "Api externa de envio de email")
     System_Ext(ViaCepApi, "Api ViaCep", "Api externa de Validação e busca de endereço")
 
