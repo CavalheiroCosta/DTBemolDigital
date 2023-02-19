@@ -1,7 +1,7 @@
 ﻿using Customer.Domain.Aggregates;
+using Customer.Domain.DomainObjects;
 using Customer.Domain.Exceptions;
 using Customer.Domain.Interfaces.Repository;
-using Customer.Domain.ValueObjects;
 using Customer.Infra.HttpClients.ViaCep;
 
 namespace Customer.Infra.Repositories
@@ -15,13 +15,13 @@ namespace Customer.Infra.Repositories
             _viaCepClient = viaCepClient;
         }
 
-        public async Task<DeliveryAddress> GetDeliveryAddressFromCepAsync(Cep cep)
+        public async Task<DeliveryAddress> GetAddressAsync(Cep cep)
         {
-            var gettedAddress = await _viaCepClient.GetAddressDataAsync(cep.Number);
+            var gettedAddress = await _viaCepClient.GetAddressAsync(cep.Value);
 
-            return gettedAddress.erro ?
-                throw new ExternalAddressNotFoundException(cep.Number) :
-                new DeliveryAddress(cep, gettedAddress.Logradouro, gettedAddress.bairro, gettedAddress.localidade, gettedAddress.uf);
+            return gettedAddress.Erro ?
+                throw new ExternalAddressNotFoundException(cep.Value) :
+                new DeliveryAddress(cep, gettedAddress.Logradouro, gettedAddress.Bairro, gettedAddress.Localidade, gettedAddress.Uf);
         }
     }
 }

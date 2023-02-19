@@ -1,5 +1,5 @@
-﻿using Customer.Domain.Responses;
-using Customer.Domain.ValueObjects;
+﻿using Customer.Domain.DomainObjects;
+using Customer.Domain.Responses;
 
 namespace Customer.Domain.Aggregates
 {
@@ -27,19 +27,19 @@ namespace Customer.Domain.Aggregates
             State = state;
         }
 
-        public string Identifier { get; set; }
-        public Cep Cep { get; set; }
-        public string Address { get; set; }
-        public long Number { get; set; }
-        public string Neighborhood { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
-        public string Complement { get; set; }
-        public string Reference { get; set; }
+        public string Identifier { get; private set; } = string.Empty;
+        public Cep Cep { get; private set; }
+        public string Address { get; private set; }
+        public long Number { get; private set; }
+        public string Neighborhood { get; private set; }
+        public string City { get; private set; }
+        public string State { get; private set; } 
+        public string Complement { get; private set; } = string.Empty; 
+        public string Reference { get; private set; } = string.Empty;
 
         public AddressDetailResponse GetAddressDetail()
         {
-            return new AddressDetailResponse(Cep.Number, Address, Neighborhood, City, State);
+            return new AddressDetailResponse(Cep.Value, Address, Neighborhood, City, State);
         }
 
     }

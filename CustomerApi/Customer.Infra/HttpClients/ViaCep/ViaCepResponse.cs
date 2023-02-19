@@ -3,24 +3,39 @@ namespace Customer.Infra.HttpClients.ViaCep
 {
     public class ViaCepResponse
     {
-        public string Cep { get; set; }
-        public string Logradouro { get; set; }
-        public string complemento { get; set; }
+        public ViaCepResponse(string cep, string logradouro, string complemento, string bairro, string localidade, string uf, string ibge, string gia, string ddd, string siafi, bool erro)
+        {
+            Cep = cep;
+            Logradouro = logradouro;
+            Complemento = complemento;
+            Bairro = bairro;
+            Localidade = localidade;
+            Uf = uf;
+            Ibge = ibge;
+            Gia = gia;
+            Ddd = ddd;
+            Siafi = siafi;
+            Erro = erro;
+        }
 
-        public string bairro { get; set; }
+        public string Cep { get;}
+        public string Logradouro { get; }
+        public string Complemento { get; }
 
-        public string localidade { get; set; }
+        public string Bairro { get;}
 
-        public string uf { get; set; }
+        public string Localidade { get; }
 
-        public string ibge { get; set; }
+        public string Uf { get; }
 
-        public string gia { get; set; }
+        public string Ibge { get; }
 
-        public string ddd { get; set; }
+        public string Gia { get; }
 
-        public string siafi { get; set; }
-        public bool erro { get; set; } = false;
+        public string Ddd { get; }
+
+        public string Siafi { get; }
+        public bool Erro { get; private set; } = false;
 
 
     }

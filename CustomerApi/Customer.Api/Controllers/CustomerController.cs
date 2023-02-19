@@ -1,4 +1,5 @@
-﻿using Customer.Domain.Interfaces.Services;
+﻿using Customer.Domain.DomainObjects;
+using Customer.Domain.Interfaces.Services;
 using Customer.Domain.Responses;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,12 +25,12 @@ namespace Customer.Api.Controllers
         }
 
 
-        [HttpGet("/delivery-address/cep")]
+        [HttpGet("/Address/{cep}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AddressDetailResponse))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> CreateCustomer([FromQuery] string cep)
+        public async Task<IActionResult> CreateCustomer([FromRoute] string cep)
         {
-            return Ok(await _deliveryAddressService.GetAddressDetailFromCepAsync(cep));
+            return Ok(await _deliveryAddressService.GetAddressAsync(cep));
         }
     }
 }

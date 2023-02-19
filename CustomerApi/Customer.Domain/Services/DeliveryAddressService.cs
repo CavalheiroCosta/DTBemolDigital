@@ -1,8 +1,8 @@
 ﻿
+using Customer.Domain.DomainObjects;
 using Customer.Domain.Interfaces.Repository;
 using Customer.Domain.Interfaces.Services;
 using Customer.Domain.Responses;
-using Customer.Domain.ValueObjects;
 
 namespace Customer.Domain.Services
 {
@@ -15,10 +15,15 @@ namespace Customer.Domain.Services
             _deliveryAddressRepository = deliveryAddressRepository;
         }
 
-        public async Task<AddressDetailResponse> GetAddressDetailFromCepAsync(string cep)
+        public async Task<AddressDetailResponse> GetAddressAsync(Cep cep)
         {
-            var deliveryAddress = await _deliveryAddressRepository.GetDeliveryAddressFromCepAsync(new Cep(cep));
+            var deliveryAddress = await _deliveryAddressRepository.GetAddressAsync(cep);
             return deliveryAddress.GetAddressDetail();
+        }
+
+        public Task<AddressDetailResponse> GetAddressAsync(string cep)
+        {
+            return GetAddressAsync(new Cep(cep));
         }
     }
 }
