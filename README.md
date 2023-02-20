@@ -7,13 +7,29 @@ Neste projeto viso apresentar duas situações:
 	+ Referência [C4 Model Documentação](https://c4model.com/ "C4 Model Documentação")
 + Implementação de uma API "CustomerApi" com as seguintes implementações
 	+ Endpoint de Busca de endereços ao passar um cep (Busca de dados em [ViaCep](https://viacep.com.br/ "ViaCep"))
-	+ Endpoin de cadastro de cliente Pessoa Fisica e Pessoa Juridica
+	+ Endpoint de cadastro de cliente Pessoa Fisica e Pessoa Juridica
+
+**Sobre a execução do projeto**
+
+Pode executar o projeto por linha de comando através de
+``` dotnet run --project Customer.Api ```
+
+Também há opções locais de execução através dos perfis:
++ http ou https
++ IIS Express
++ Docker
+
+**Sobre a interface de utilização**
+
+No projeto há a disposição um JSON referente a uma collection de postman e o projeto também contém swagger configurado.
++ Arquivo  [DTBemolDigital Collection](https://github.com/CavalheiroCosta/DTBemolDigital/blob/main/DTBemolDigital.postman_collection.json "DTBemolDigital Collection")
 
 ------------
 ### Sobre a API
 No projeto consta a "CustomerApi" que foi desenvolvida utilizando [Visual Studio 2022](https://visualstudio.microsoft.com/pt-br/vs/community/ "Visual Studio 2022") em .NET 7 e utilizando Swagger para documentação parcial de api.
 
 **Sobre as features**
+
 Foram implementados três features:
 + Busca de dados endereços utilizando o Cep `api/Customer/Address/{Cep}` recebendo o valor do Cep pela rota.
 + Cadastro de clientes pessoa fisica através de `api/Customer/Person` recebendo json pelo body.
