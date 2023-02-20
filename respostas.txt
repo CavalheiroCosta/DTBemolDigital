@@ -1,29 +1,27 @@
 1. A solução deve ser disponibilizada em Cloud ou On-premise? 
 
-- A melhor forma de disponibilizar a solução seria em Cloud ja que o objetivo principal seria a solução desenvolvida
-fazer parte de uma arquitetura voltada a atender um 'omnichannel'. O universo do varejo requisita alta demanda
-de disponibilidade e observabilidade. Logo que acredito que para atender os requisitos, o cliente ter a mesma experiência
-independente da interface e o sistema estar sempre disponivel, o ambiente de cloud seria o melhor.
+- A melhor forma de disponibilizar a solução seria em Cloud, pois se faz necessário atender o conceito 'omnichannel'
+de forma escalavel como definido no problema, e os ambientes de cloud disponibilizam ferramentas de escalabilidade automatica. 
 
 2. Considerando a participação de 4 pessoas técnicas para o desenvolvimento dessa solução, responda 
 qual ferramenta acreditas ser apropriada para o controle de tarefas da equipe, a ferramenta é ágil? 
 
-- Considerando 4 pessoas envolvidas no processo, poderiamos usar tanto ferramentas baseadas em SCRUM ou Kanbam como 
+- Considerando 4 pessoas envolvidas no processo, poderiamos usar tanto ferramentas baseadas em SCRUM ou Kanban como 
 trello (https://trello.com/pt-BR), Jira (https://www.atlassian.com/software/jira), se for ambiente Azure temos o
 Azure Boards (https://azure.microsoft.com/pt-br/products/devops/boards) entre outros. O melhor é buscar uma ferramenta 
 agil para buscar atender com entrega continua de valor.
 
 3. Você se sente capaz de liderar esta equipe? Por quê? 
 
-- Acredito que sim, pois ja atuei em neste papel em uma equipe contendo 2 front-ends e 2 back-ends, onde encontrei
-bastante desafios e alegrias.
+- Acredito que sim, pois já atuei neste papel em uma equipe contendo 2 front-ends e 2 back-ends, onde encontrei
+bastante desafios e alegrias e pela atuação neste papel fui reconhecido pela empresa e colegas com uma premiação.
 
 4. Se pudesse sugerir uma melhoria, mudança ou oportunidade. O que seria? 
 
 - O documento de requisito poderia estar melhor estruturado e um pouco mais definido. Talvez trocasse a requisição externa
-para outra que trouxesse maiores desafios para lidar no proprio dominio.   
+para outra que trouxesse maiores desafios para lidar no próprio domínio.   
 
 5. Acha válido esse desafio para o processo que está participando?
 
--  Acredito sim que tenha sido valido, pois durante o desafio pude utilizar minhas capacidades de abstração (através da implementação
+- Acredito que tenha sido válido, pois durante o desafio pude utilizar minhas capacidades de abstração (através da implementação
 e busca/definições de regras de negócio) e capacidade de estudo e compreensão ja que não conhecia a notação c4 de documentação.
