@@ -42,5 +42,19 @@ namespace Customer.Infra.Repositories
         {
             return await _customerContext.Persons.FirstOrDefaultAsync(person => person.Cpf.Value == cpf.Value);
         }
+
+        public async Task<Person> GetPersonAsync(Guid id)
+        {
+            return await _customerContext.Persons.
+                Include(customer => customer.DeliveryAddress).
+                FirstOrDefaultAsync(person => person.Id == id);
+        }
+
+        public async Task<Company> GetCompanyAsync(Guid id)
+        {
+            return await _customerContext.Companies.
+                Include(customer => customer.DeliveryAddress).
+                FirstOrDefaultAsync(company => company.Id == id);
+        }
     }
 }

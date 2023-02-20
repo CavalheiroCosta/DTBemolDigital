@@ -30,6 +30,7 @@ namespace Customer.Domain.Handler
                         {
                             DomainException => StatusCodes.Status400BadRequest,
                             ExternalAddressNotFoundException => StatusCodes.Status404NotFound,
+                            EntityNotFoundException => StatusCodes.Status404NotFound,
                             ApiException => StatusCodes.Status503ServiceUnavailable,
                             _ => StatusCodes.Status500InternalServerError
                         };

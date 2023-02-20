@@ -31,6 +31,16 @@ namespace Customer.Api.Controllers
             return Ok(createdPersonId);
         }
 
+        [HttpGet("Person/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AddressDetailResponse))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetCompanyPerson([FromRoute] Guid id)
+        {
+            var customer = await _customerService.GetPersonAsync(id);
+            return Ok(customer);
+        }
+
         [HttpPost("Company")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Guid))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -42,6 +52,15 @@ namespace Customer.Api.Controllers
             return Ok(createdCompanyId);
         }
 
+        [HttpGet("Company/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AddressDetailResponse))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetCompanyCustomer([FromRoute] Guid id)
+        {
+            var customer = await _customerService.GetCompanyAsync(id);
+            return Ok(customer);
+        }
 
         [HttpGet("Address/{cep}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AddressDetailResponse))]
@@ -52,5 +71,6 @@ namespace Customer.Api.Controllers
             var address = await _deliveryAddressService.GetAddressAsync(cep);
             return Ok(address.GetAddressDetail());
         }
+
     }
 }

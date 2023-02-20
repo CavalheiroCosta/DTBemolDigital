@@ -50,7 +50,7 @@ namespace Customer.Domain.Services
         private async Task<Address> GetAddress(CreateDeliveryAddressRequest request)
         {
             var address = await _deliveryAddressService.GetAddressAsync(request.Cep);
-            address.AddSpecifications(request.Identifier, request.Complement, request.Reference);
+            address.AddSpecifications(request.Identifier, request.Number, request.Complement, request.Reference);
             return address;
         }
 
@@ -64,6 +64,18 @@ namespace Customer.Domain.Services
         {
             var company = await _customerRepository.GetCompanyAsync(cnpj);
             return company is { };
+        }
+
+        public async Task<Company> GetCompanyAsync(Guid id)
+        {
+            var company = await _customerRepository.GetCompanyAsync(id);
+            return company is null ? throw new EntityNotFoundException("Company") : company;
+        }
+
+        public async Task<Person> GetPersonAsync(Guid id)
+        {
+            var person = await _customerRepository.GetPersonAsync(id);
+            return person is null ? throw new EntityNotFoundException("Person") : person;
         }
     }
 }

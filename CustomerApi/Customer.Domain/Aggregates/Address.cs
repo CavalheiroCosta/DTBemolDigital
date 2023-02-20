@@ -23,7 +23,7 @@ namespace Customer.Domain.Aggregates
         public string Identifier { get; private set; } = string.Empty;
         public Cep Cep { get; private set; }
         public string AddressLine { get; private set; }
-        public long Number { get; private set; }
+        public string Number { get; private set; }
         public string Neighborhood { get; private set; }
         public string City { get; private set; }
         public string State { get; private set; } 
@@ -35,11 +35,12 @@ namespace Customer.Domain.Aggregates
             return new AddressDetailResponse(Cep.Value, AddressLine, Neighborhood, City, State);
         }
 
-        public void AddSpecifications(string identifier, string complement, string reference) 
+        public void AddSpecifications(string identifier, string number, string complement, string reference) 
         {
             Identifier = identifier;
             Complement = complement;
             Reference = reference;
+            Number = number;
         }
 
     }
