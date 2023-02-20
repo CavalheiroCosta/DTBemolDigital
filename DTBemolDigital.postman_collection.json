@@ -1,0 +1,243 @@
+{
+	"info": {
+		"_postman_id": "45552097-c2d5-48be-a111-4ea5091646c1",
+		"name": "DTBemolDigital",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10280084"
+	},
+	"item": [
+		{
+			"name": "Get Address with Cep",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7055/api/Customer/Address/03041090",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7055",
+					"path": [
+						"api",
+						"Customer",
+						"Address",
+						"03041090"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Address with Cep 03041090",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7055/api/Customer/Address/03041090",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7055",
+							"path": [
+								"api",
+								"Customer",
+								"Address",
+								"03041090"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Feb 2023 01:04:09 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"cep\": \"03041090\",\n    \"addressLine\": \"Rua Campos Sales\",\n    \"neighborhood\": \"Brás\",\n    \"city\": \"São Paulo\",\n    \"state\": \"SP\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add new person customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Pessoa Teste\",\r\n  \"birthDate\": \"1991-01-16\",\r\n  \"cpf\": \"184.925.094-49\",\r\n  \"email\": \"benedito-depaula96@abcautoservice.net\",\r\n  \"deliveryAddress\": {\r\n    \"cep\": \"57680-970\",\r\n    \"identifier\": \"Casa\",\r\n    \"number\": \"940\",\r\n    \"complement\": \"casa azul\",\r\n    \"reference\": \"terceira a direita\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7055/api/Customer/Person",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7055",
+					"path": [
+						"api",
+						"Customer",
+						"Person"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add new person customer: Pessoa Teste",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Pessoa Teste\",\r\n  \"birthDate\": \"1991-01-16\",\r\n  \"cpf\": \"184.925.094-49\",\r\n  \"email\": \"benedito-depaula96@abcautoservice.net\",\r\n  \"deliveryAddress\": {\r\n    \"cep\": \"57680-970\",\r\n    \"identifier\": \"Casa\",\r\n    \"number\": \"940\",\r\n    \"complement\": \"casa azul\",\r\n    \"reference\": \"terceira a direita\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7055/api/Customer/Person",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7055",
+							"path": [
+								"api",
+								"Customer",
+								"Person"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Feb 2023 01:09:32 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "\"41357514-918d-4159-b352-ba205c5026f0\""
+				}
+			]
+		},
+		{
+			"name": "Add new company customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Empres teste\",\r\n  \"corporateName\": \"Giovanni e Pedro Henrique Eletrônica ME\",\r\n  \"cnpj\": \"93.714.713/0001-06\",\r\n  \"email\": \"compras@giovanniepedrohenriqueeletronicame.com.br\",\r\n  \"deliveryAddress\": {\r\n    \"cep\": \"79117-366\",\r\n    \"identifier\": \"Loja\",\r\n    \"number\": \"519\",\r\n    \"complement\": \"Loja azul\",\r\n    \"reference\": \"começo da rua\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7055/api/Customer/Company",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7055",
+					"path": [
+						"api",
+						"Customer",
+						"Company"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add mew company customer: Empresa teste",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Empres teste\",\r\n  \"corporateName\": \"Giovanni e Pedro Henrique Eletrônica ME\",\r\n  \"cnpj\": \"93.714.713/0001-06\",\r\n  \"email\": \"compras@giovanniepedrohenriqueeletronicame.com.br\",\r\n  \"deliveryAddress\": {\r\n    \"cep\": \"79117-366\",\r\n    \"identifier\": \"Loja\",\r\n    \"number\": \"519\",\r\n    \"complement\": \"Loja azul\",\r\n    \"reference\": \"começo da rua\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7055/api/Customer/Company",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7055",
+							"path": [
+								"api",
+								"Customer",
+								"Company"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Feb 2023 01:13:05 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "\"38d7d6a0-eb58-40c8-a057-5f34d0c20e68\""
+				}
+			]
+		}
+	]
+}
