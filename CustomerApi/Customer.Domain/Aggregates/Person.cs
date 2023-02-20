@@ -14,7 +14,7 @@ namespace Customer.Domain.Aggregates
             Id = Guid.NewGuid();
             Cpf = new Cpf(cpf);
             Email = new Email(email);
-            DeliveryAddresId = deliveryAddres.Id;
+            DeliveryAddressId = deliveryAddres.Id;
             DeliveryAddress = deliveryAddres;
         }
 
@@ -23,7 +23,7 @@ namespace Customer.Domain.Aggregates
         public DateTime BirthDate { get; private set; }
         public Cpf Cpf { get; private set; }
         public Email Email { get; private set; }
-        public Guid DeliveryAddresId { get; private set; }
+        public Guid DeliveryAddressId { get; private set; }
 
         public Address DeliveryAddress { get; private set; }
     }
