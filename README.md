@@ -7,7 +7,7 @@ Neste projeto viso apresentar duas situações:
 	+ Referência [C4 Model Documentação](https://c4model.com/ "C4 Model Documentação")
 + Implementação de uma API "CustomerApi" com as seguintes implementações
 	+ Endpoint de Busca de endereços ao passar um cep (Busca de dados em [ViaCep](https://viacep.com.br/ "ViaCep"))
-	+ Endpoin de cadastro de cliente Pessoa Fisica e Pessoa Juridica
+	+ Endpoint de cadastro de cliente Pessoa Fisica e Pessoa Juridica
 
 **Sobre a execução do projeto**
 
