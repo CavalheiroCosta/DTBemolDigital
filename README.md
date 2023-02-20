@@ -21,7 +21,7 @@ Também há opções locais de execução através dos perfis:
 
 **Sobre a interface de utilização**
 
-No projeto há a disposição um JSON referente a uma collection de postman e o projeto também esta configurado com swagger.
+No projeto há a disposição um JSON referente a uma collection de postman e o projeto também contém swagger configurado.
 + Arquivo  [DTBemolDigital Collection](https://github.com/CavalheiroCosta/DTBemolDigital/blob/main/DTBemolDigital.postman_collection.json "DTBemolDigital Collection")
 
 ------------
