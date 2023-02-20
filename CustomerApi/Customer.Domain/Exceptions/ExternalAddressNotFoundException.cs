@@ -2,7 +2,7 @@
 
 namespace Customer.Domain.Exceptions
 {
-    public class ExternalAddressNotFoundException : DomainException
+    public class ExternalAddressNotFoundException : Exception
     {
         public ExternalAddressNotFoundException(string cep) : base(ExpectedErrorMessages.ExternalAddressNotFound(cep))
         {

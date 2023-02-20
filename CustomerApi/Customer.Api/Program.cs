@@ -1,5 +1,7 @@
 using Customer.Domain;
 using Customer.Infra;
+using Serilog;
+using ILogger = Serilog.ILogger;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
@@ -7,6 +9,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDomain();
 builder.Services.AddInfra(builder.Configuration);
+
+ILogger logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateLogger();
 
 var app = builder.Build();
 
@@ -17,10 +23,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UserDomainExceptionHandler(logger);
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
