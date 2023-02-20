@@ -25,7 +25,7 @@ namespace Customer.Domain.DomainObjects
 
         private bool IsValidCpf(string cpf)
         {
-            var cleanCpf = cpf.RemoveSpecialCaracteres();
+            var cleanCpf = cpf.RemoveSpecialCharacteres();
             if (IsNotOnlyNumbersCpf(cleanCpf) || _invalidCpfs.Contains(cleanCpf))
                 throw new DomainException(ExpectedErrorMessages.InvalidOfficialDocument("CPF"));
 

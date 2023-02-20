@@ -45,6 +45,6 @@ namespace Customer.Domain.Aggregates
         public Guid DeliveryAddresId { get; private set; }
 
 
-        public Address? DeliveryAddress { get; set; } = null;
+        public Address DeliveryAddress { get; private set; }
     }
 }

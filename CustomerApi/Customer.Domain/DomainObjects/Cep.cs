@@ -12,14 +12,13 @@ namespace Customer.Domain.DomainObjects
         protected Cep() { }
         public Cep(string cep)
         {
-            Value = IsValidCep(cep) ? 
-                cep.RemoveSpecialCaracteres() : 
-                throw new DomainException(ExpectedErrorMessages.InvalidCep());
+            var cleanCep = cep.RemoveSpecialCharacteres();
+            Value = IsValidCep(cleanCep) ? cleanCep :  throw new DomainException(ExpectedErrorMessages.InvalidCep);
         }
 
         private bool IsValidCep(string cep)
         {
-            cep = cep.RemoveSpecialCaracteres();
+            cep = cep.RemoveSpecialCharacteres();
             var validateRegex = new Regex(@"^[0-9]{8}$");
             return validateRegex.IsMatch(cep);
         }

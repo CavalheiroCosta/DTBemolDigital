@@ -25,7 +25,7 @@ namespace Customer.Domain.DomainObjects
 
         private bool IsValidCnpj(string cnpj)
         {
-            var cleanCnpj = cnpj.RemoveSpecialCaracteres();
+            var cleanCnpj = cnpj.RemoveSpecialCharacteres();
             if (IsNotOnlyNumbersCpf(cleanCnpj) || _invalidCnpjs.Contains(cleanCnpj))
                 throw new DomainException(ExpectedErrorMessages.InvalidOfficialDocument("CNPJ"));
 

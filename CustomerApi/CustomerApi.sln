@@ -5,13 +5,9 @@ VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.Api", "Customer.Api\Customer.Api.csproj", "{50247366-FC3E-4FF9-8AA7-06606E3ED0CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer.Domain", "Customer.Domain\Customer.Domain.csproj", "{24224845-CCF0-41F5-971A-30741C59B5B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.Domain", "Customer.Domain\Customer.Domain.csproj", "{24224845-CCF0-41F5-971A-30741C59B5B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer.Infra", "Customer.Infra\Customer.Infra.csproj", "{A2636655-82A3-44A0-B440-87D3FB3506F9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer.UnitTests", "Customer.UnitTests\Customer.UnitTests.csproj", "{6EDDE520-AEB7-4E6D-A0FD-1412B0F7CED8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer.IntegrationTests", "Customer.IntegrationTests\Customer.IntegrationTests.csproj", "{855C88B1-1CD3-476A-A437-35132FF297C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.Infra", "Customer.Infra\Customer.Infra.csproj", "{A2636655-82A3-44A0-B440-87D3FB3506F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +27,6 @@ Global
 		{A2636655-82A3-44A0-B440-87D3FB3506F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2636655-82A3-44A0-B440-87D3FB3506F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2636655-82A3-44A0-B440-87D3FB3506F9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6EDDE520-AEB7-4E6D-A0FD-1412B0F7CED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6EDDE520-AEB7-4E6D-A0FD-1412B0F7CED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6EDDE520-AEB7-4E6D-A0FD-1412B0F7CED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6EDDE520-AEB7-4E6D-A0FD-1412B0F7CED8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{855C88B1-1CD3-476A-A437-35132FF297C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{855C88B1-1CD3-476A-A437-35132FF297C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{855C88B1-1CD3-476A-A437-35132FF297C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{855C88B1-1CD3-476A-A437-35132FF297C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

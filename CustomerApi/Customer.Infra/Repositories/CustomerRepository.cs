@@ -17,7 +17,7 @@ namespace Customer.Infra.Repositories
             _customerContext = customerContext;
         }
 
-        public async Task<Guid> CreateAsync(Person person)
+        public async Task<Guid> CreatePersonAsync(Person person)
         {
             _customerContext.Persons.Add(person);
             await _customerContext.SaveChangesAsync();
@@ -25,7 +25,7 @@ namespace Customer.Infra.Repositories
             return person.Id;
         }
 
-        public async Task<Guid> CreateAsync(Company company)
+        public async Task<Guid> CreateCompanyAsync(Company company)
         {
             _customerContext.Companies.Add(company);
             await _customerContext.SaveChangesAsync();

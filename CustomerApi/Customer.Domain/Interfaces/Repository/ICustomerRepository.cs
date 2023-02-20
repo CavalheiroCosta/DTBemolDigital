@@ -12,7 +12,7 @@ namespace Customer.Domain.Interfaces.Repository
     {
         Task<Person> GetPersonAsync(Cpf cpf);
         Task<Company> GetCompanyAsync(Cnpj cnpj);
-        Task<Guid> CreateAsync(Person person);
-        Task<Guid> CreateAsync(Company company);
+        Task<Guid> CreatePersonAsync(Person person);
+        Task<Guid> CreateCompanyAsync(Company company);
     }
 }

@@ -43,6 +43,6 @@ namespace Customer.Domain.Aggregates
         public Email Email { get; private set; }
         public Guid DeliveryAddresId { get; private set; }
 
-        public Address? DeliveryAddress { get; set; } = null;
+        public Address DeliveryAddress { get; set; }
     }
 }

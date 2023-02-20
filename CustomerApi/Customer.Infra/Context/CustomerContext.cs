@@ -11,9 +11,9 @@ namespace Customer.Infra.Context
 
         }
 
-        public virtual DbSet<Address> DeliveryAddresses { get; set; }
-        public virtual DbSet<Person> Persons { get; set; }
-        public virtual DbSet<Company> Companies { get; set; }
+        public virtual DbSet<Address> DeliveryAddresses => Set<Address>();
+        public virtual DbSet<Person> Persons => Set<Person>();
+        public virtual DbSet<Company> Companies => Set<Company>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

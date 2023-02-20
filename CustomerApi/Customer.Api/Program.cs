@@ -23,8 +23,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UserDomainExceptionHandler(logger);
+app.UseDomainExceptionHandler(logger);
 app.UseHttpsRedirection();
-app.UseAuthorization();
 app.MapControllers();
 app.Run();

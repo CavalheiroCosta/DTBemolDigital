@@ -27,30 +27,30 @@ namespace Customer.Domain.Services
 
         public async Task<Guid> CreateCompanyAsync(CreateCompanyRequest request)
         {
-            var address = await GetAddres(request.DeliveryAddress);
+            var address = await GetAddress(request.DeliveryAddress);
             var company = new Company(request.Name, request.CorporateName, request.Cnpj, request.Email, address);
 
             if (await HasCompanyWithCnpj(company.Cnpj))
                 throw new DomainException(ExpectedErrorMessages.DuplicateDataWithTheData("CNPJ"));
 
-            return await _customerRepository.CreateAsync(company);
+            return await _customerRepository.CreateCompanyAsync(company);
         }
 
         public async Task<Guid> CreatePersonAsync(CreatePersonRequest request)
         {
-            var address = await GetAddres(request.DeliveryAddress);
+            var address = await GetAddress(request.DeliveryAddress);
             var person = new Person(request.Name, request.BirthDate, request.Cpf, request.Email, address);
 
             if (await HasPersonWithCpf(person.Cpf)) 
                 throw new DomainException(ExpectedErrorMessages.DuplicateDataWithTheData("CPF"));
 
-            return await _customerRepository.CreateAsync(person);
+            return await _customerRepository.CreatePersonAsync(person);
         }
 
-        private async Task<Address> GetAddres(CreateDeliveryAddressRequest request)
+        private async Task<Address> GetAddress(CreateDeliveryAddressRequest request)
         {
             var address = await _deliveryAddressService.GetAddressAsync(request.Cep);
-            address.AddComplements(request.Identifier, request.Complement, request.Reference);
+            address.AddSpecifications(request.Identifier, request.Complement, request.Reference);
             return address;
         }
 
