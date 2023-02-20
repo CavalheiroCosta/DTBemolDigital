@@ -18,7 +18,8 @@ namespace Customer.Domain.DomainObjects
 
         public string Value { get; private set; }
 
-        public Cnpj(string value) {
+        public Cnpj(string value)
+        {
             Value = IsValidCnpj(value) ? value : throw new DomainException(ExpectedErrorMessages.InvalidOfficialDocument("CNPJ"));
         }
 

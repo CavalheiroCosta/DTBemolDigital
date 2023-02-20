@@ -3,21 +3,15 @@ using Customer.Domain.Exceptions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
-using Serilog;
 using Refit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Serilog;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace Customer.Domain.Handler
 {
     public static class ExceptionHandler
     {
-        public static void AddExceptionHandler(this IApplicationBuilder app, ILogger logger) 
+        public static void AddExceptionHandler(this IApplicationBuilder app, ILogger logger)
         {
             app.UseExceptionHandler(exceptionHandlerApp =>
             {

@@ -1,8 +1,6 @@
-﻿using Customer.Domain.DomainObjects;
-using Customer.Domain.Interfaces.Services;
+﻿using Customer.Domain.Interfaces.Services;
 using Customer.Domain.Requests;
 using Customer.Domain.Responses;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Customer.Api.Controllers
@@ -25,7 +23,7 @@ namespace Customer.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> CreatePersonCustomer([FromBody]CreatePersonRequest request)
+        public async Task<IActionResult> CreatePersonCustomer([FromBody] CreatePersonRequest request)
         {
             var createdPersonId = await _customerService.CreatePersonAsync(request);
             return Ok(createdPersonId);

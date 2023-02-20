@@ -18,11 +18,11 @@ namespace Customer.Infra.HttpClients.ViaCep
             Erro = erro;
         }
 
-        public string Cep { get;}
+        public string Cep { get; }
         public string Logradouro { get; }
         public string Complemento { get; }
 
-        public string Bairro { get;}
+        public string Bairro { get; }
 
         public string Localidade { get; }
 

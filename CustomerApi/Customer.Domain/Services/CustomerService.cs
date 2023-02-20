@@ -5,12 +5,6 @@ using Customer.Domain.Exceptions;
 using Customer.Domain.Interfaces.Repository;
 using Customer.Domain.Interfaces.Services;
 using Customer.Domain.Requests;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace Customer.Domain.Services
 {
@@ -41,7 +35,7 @@ namespace Customer.Domain.Services
             var address = await GetAddress(request.DeliveryAddress);
             var person = new Person(request.Name, request.BirthDate, request.Cpf, request.Email, address);
 
-            if (await HasPersonWithCpf(person.Cpf)) 
+            if (await HasPersonWithCpf(person.Cpf))
                 throw new DomainException(ExpectedErrorMessages.DuplicateDataWithTheData("CPF"));
 
             return await _customerRepository.CreatePersonAsync(person);
@@ -54,7 +48,7 @@ namespace Customer.Domain.Services
             return address;
         }
 
-        private async Task<bool> HasPersonWithCpf(Cpf cpf) 
+        private async Task<bool> HasPersonWithCpf(Cpf cpf)
         {
             var person = await _customerRepository.GetPersonAsync(cpf);
             return person is { };

@@ -5,10 +5,10 @@ namespace Customer.Domain.Aggregates
 {
     public class Address
     {
-        protected Address(string addressLine, string neighborhood, string city, string state) 
+        protected Address(string addressLine, string neighborhood, string city, string state)
         {
             AddressLine = addressLine;
-            Neighborhood = neighborhood;   
+            Neighborhood = neighborhood;
             City = city;
             State = state;
 
@@ -26,8 +26,8 @@ namespace Customer.Domain.Aggregates
         public string Number { get; private set; }
         public string Neighborhood { get; private set; }
         public string City { get; private set; }
-        public string State { get; private set; } 
-        public string Complement { get; private set; } = string.Empty; 
+        public string State { get; private set; }
+        public string Complement { get; private set; } = string.Empty;
         public string Reference { get; private set; } = string.Empty;
 
         public AddressDetailResponse GetAddressDetail()
@@ -35,7 +35,7 @@ namespace Customer.Domain.Aggregates
             return new AddressDetailResponse(Cep.Value, AddressLine, Neighborhood, City, State);
         }
 
-        public void AddSpecifications(string identifier, string number, string complement, string reference) 
+        public void AddSpecifications(string identifier, string number, string complement, string reference)
         {
             Identifier = identifier;
             Complement = complement;

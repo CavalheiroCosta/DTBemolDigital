@@ -23,7 +23,7 @@ namespace Customer.Domain.Requests
             RuleFor(p => p.Cpf).NotEmpty().WithMessage(ConfigurationErrorMessages.EmptyField("CPF"));
             RuleFor(p => p.Email).NotEmpty().WithMessage(ConfigurationErrorMessages.EmptyField("Email"));
             RuleFor(p => p.DeliveryAddress).SetValidator(new CreateDeliveryAddressRequestValidator());
-             
+
         }
     }
 }

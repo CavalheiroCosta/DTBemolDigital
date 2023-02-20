@@ -4,11 +4,11 @@ namespace Customer.Domain.Aggregates
 {
     public class Person
     {
-        protected Person(string name, DateTime birthDate) 
+        protected Person(string name, DateTime birthDate)
         {
             Name = name;
             BirthDate = birthDate;
-        }  
+        }
         public Person(string name, DateTime birthDate, string cpf, string email, Address deliveryAddres) : this(name, birthDate)
         {
             Id = Guid.NewGuid();

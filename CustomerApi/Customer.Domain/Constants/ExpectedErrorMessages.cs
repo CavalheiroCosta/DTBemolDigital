@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Diagnostics.HealthChecks;
-
-namespace Customer.Domain.Constants
+﻿namespace Customer.Domain.Constants
 {
     public static class ExpectedErrorMessages
     {

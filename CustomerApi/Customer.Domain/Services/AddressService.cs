@@ -3,7 +3,6 @@ using Customer.Domain.Aggregates;
 using Customer.Domain.DomainObjects;
 using Customer.Domain.Interfaces.Repository;
 using Customer.Domain.Interfaces.Services;
-using Customer.Domain.Responses;
 
 namespace Customer.Domain.Services
 {

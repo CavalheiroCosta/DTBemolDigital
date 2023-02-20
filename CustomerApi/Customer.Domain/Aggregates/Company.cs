@@ -5,13 +5,13 @@ namespace Customer.Domain.Aggregates
     public class Company
     {
 
-        protected Company(string name, string corporateName) 
+        protected Company(string name, string corporateName)
         {
             Name = name;
             CorporateName = corporateName;
-        } 
+        }
 
-        public Company(string name, string corporateName, string cnpj, string email, Address deliveryAddress) : this(name,corporateName)
+        public Company(string name, string corporateName, string cnpj, string email, Address deliveryAddress) : this(name, corporateName)
         {
             Id = Guid.NewGuid();
             Cnpj = new Cnpj(cnpj);

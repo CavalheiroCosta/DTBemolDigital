@@ -4,7 +4,6 @@ using Customer.Domain.Exceptions;
 using Customer.Domain.Interfaces.Repository;
 using Customer.Domain.Util;
 using Customer.Infra.HttpClients.ViaCep;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Customer.Infra.Repositories
 {
@@ -22,7 +21,8 @@ namespace Customer.Infra.Repositories
         public async Task<Address> GetAddressAsync(Cep cep)
         {
             var address = _cache.GetValue<ViaCepResponse>(cep.Value);
-            if (address == null){
+            if (address == null)
+            {
                 address = await _viaCepClient.GetAddressAsync(cep.Value);
                 if (address.Erro)
                     throw new ExternalAddressNotFoundException(cep.Value);

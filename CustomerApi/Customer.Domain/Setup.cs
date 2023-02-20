@@ -19,7 +19,7 @@ namespace Customer.Domain
             services.AddSingleton<ICacheUtil, CacheUtil>();
         }
 
-        public static void UseDomainExceptionHandler(this IApplicationBuilder app, ILogger logger) 
+        public static void UseDomainExceptionHandler(this IApplicationBuilder app, ILogger logger)
         {
             app.AddExceptionHandler(logger);
         }

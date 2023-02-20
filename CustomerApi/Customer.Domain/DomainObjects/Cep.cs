@@ -11,7 +11,7 @@ namespace Customer.Domain.DomainObjects
         public Cep(string value)
         {
             var cleanCep = value.RemoveSpecialCharacteres();
-            Value = IsValidCep(cleanCep) ? cleanCep :  throw new DomainException(ExpectedErrorMessages.InvalidCep);
+            Value = IsValidCep(cleanCep) ? cleanCep : throw new DomainException(ExpectedErrorMessages.InvalidCep);
         }
 
         private bool IsValidCep(string cep)

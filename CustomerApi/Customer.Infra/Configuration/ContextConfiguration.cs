@@ -7,7 +7,8 @@ namespace Customer.Infra.Configuration
 {
     public static class ContextConfiguration
     {
-        public static void ConfigureContext(this IServiceCollection services) {
+        public static void ConfigureContext(this IServiceCollection services)
+        {
             services.AddDbContext<CustomerContext>(options => options.UseInMemoryDatabase("ChallengeDb"));
         }
     }

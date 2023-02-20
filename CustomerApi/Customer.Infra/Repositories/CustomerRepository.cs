@@ -2,8 +2,6 @@
 using Customer.Domain.DomainObjects;
 using Customer.Domain.Interfaces.Repository;
 using Customer.Infra.Context;
-using System;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
 namespace Customer.Infra.Repositories
