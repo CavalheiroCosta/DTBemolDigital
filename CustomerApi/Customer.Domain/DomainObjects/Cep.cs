@@ -8,11 +8,9 @@ namespace Customer.Domain.DomainObjects
     public class Cep
     {
         public string Value { get; private set; }
-
-        protected Cep() { }
-        public Cep(string cep)
+        public Cep(string value)
         {
-            var cleanCep = cep.RemoveSpecialCharacteres();
+            var cleanCep = value.RemoveSpecialCharacteres();
             Value = IsValidCep(cleanCep) ? cleanCep :  throw new DomainException(ExpectedErrorMessages.InvalidCep);
         }
 

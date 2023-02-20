@@ -4,32 +4,14 @@ namespace Customer.Domain.Aggregates
 {
     public class Person
     {
-        protected Person() { }  
-        public Person(Guid id, string name, DateTime birthDate, string cpf, string email, Guid deliveryAddresId)
+        protected Person(string name, DateTime birthDate) 
         {
-            Id = id;
             Name = name;
             BirthDate = birthDate;
-            Cpf = new Cpf(cpf);
-            Email = new Email(email);
-            DeliveryAddresId = deliveryAddresId;
-        }
-
-        public Person(Guid id, string name, DateTime birthDate, Cpf cpf, Email email, Guid deliveryAddresId)
-        {
-            Id = id;
-            Name = name;
-            BirthDate = birthDate;
-            Cpf = cpf;
-            Email = email;
-            DeliveryAddresId = deliveryAddresId;
-        }
-
-        public Person(string name, DateTime birthDate, string cpf, string email, Address deliveryAddres) 
+        }  
+        public Person(string name, DateTime birthDate, string cpf, string email, Address deliveryAddres) : this(name, birthDate)
         {
             Id = Guid.NewGuid();
-            Name = name;
-            BirthDate = birthDate;
             Cpf = new Cpf(cpf);
             Email = new Email(email);
             DeliveryAddresId = deliveryAddres.Id;
@@ -43,6 +25,6 @@ namespace Customer.Domain.Aggregates
         public Email Email { get; private set; }
         public Guid DeliveryAddresId { get; private set; }
 
-        public Address DeliveryAddress { get; set; }
+        public Address DeliveryAddress { get; private set; }
     }
 }

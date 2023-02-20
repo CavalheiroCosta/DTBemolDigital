@@ -5,32 +5,15 @@ namespace Customer.Domain.Aggregates
     public class Company
     {
 
-        protected Company() { } 
-        public Company(Guid id, string name, string corporateName, string cnpj, string email, Guid deliveryAddresId)
+        protected Company(string name, string corporateName) 
         {
-            Id = id;
             Name = name;
             CorporateName = corporateName;
-            Cnpj = new Cnpj(cnpj);
-            Email = new Email(email);
-            DeliveryAddresId = deliveryAddresId;
-        }
+        } 
 
-        public Company(Guid id, string name, string corporateName, Cnpj cnpj, Email email, Guid deliveryAddresId)
-        {
-            Id = id;
-            Name = name;
-            CorporateName = corporateName;
-            Cnpj = cnpj;
-            Email = email;
-            DeliveryAddresId = deliveryAddresId;
-        }
-
-        public Company(string name, string corporateName, string cnpj, string email, Address deliveryAddress) 
+        public Company(string name, string corporateName, string cnpj, string email, Address deliveryAddress) : this(name,corporateName)
         {
             Id = Guid.NewGuid();
-            Name = name;
-            CorporateName = corporateName;
             Cnpj = new Cnpj(cnpj);
             Email = new Email(email);
             DeliveryAddresId = deliveryAddress.Id;

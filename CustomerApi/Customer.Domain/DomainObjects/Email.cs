@@ -12,10 +12,9 @@ namespace Customer.Domain.DomainObjects
     {
         private readonly string[] _acceptedSuffix = { "com", "net", "org", "dev", "gov"};
         public string Value { get; private set; }
-        protected Email() { }
-        public Email(string email) 
+        public Email(string value) 
         {
-            Value = IsValidEmail(email) ? email.ToLower() : throw new DomainException(ExpectedErrorMessages.InvalidOfficialDocument("Email"));
+            Value = IsValidEmail(value) ? value.ToLower() : throw new DomainException(ExpectedErrorMessages.InvalidOfficialDocument("Email"));
         }
 
         private bool IsValidEmail(string email) 

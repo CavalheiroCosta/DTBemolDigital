@@ -5,28 +5,18 @@ namespace Customer.Domain.Aggregates
 {
     public class Address
     {
-        protected Address() { }
-        public Address(string identifier, string cep, string addressLine, long number, string neighborhood, string city, string state, string complement, string reference)
+        protected Address(string addressLine, string neighborhood, string city, string state) 
         {
-            Id = Guid.NewGuid();
-            Identifier = identifier;
-            Cep = new Cep(cep);
             AddressLine = addressLine;
-            Number = number;
-            Neighborhood = neighborhood;
+            Neighborhood = neighborhood;   
             City = city;
             State = state;
-            Complement = complement;
-            Reference = reference;
+
         }
 
-        public Address(Cep cep, string addressLine, string neighborhood, string city, string state)
+        public Address(Cep cep, string addressLine, string neighborhood, string city, string state) : this(addressLine, neighborhood, city, state)
         {
             Cep = cep;
-            AddressLine = addressLine;
-            Neighborhood = neighborhood;
-            City = city;
-            State = state;
         }
 
         public Guid Id { get; private set; }
