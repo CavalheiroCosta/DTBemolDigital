@@ -23,6 +23,8 @@ namespace Customer.Api.Controllers
         [HttpPost("Person")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Guid))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> CreatePersonCustomer([FromBody]CreatePersonRequest request)
         {
             var createdPersonId = await _customerService.CreatePersonAsync(request);
@@ -32,6 +34,8 @@ namespace Customer.Api.Controllers
         [HttpPost("Company")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Guid))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> CreateCompanyCustomer([FromBody] CreateCompanyRequest request)
         {
             var createdCompanyId = await _customerService.CreateCompanyAsync(request);
@@ -42,6 +46,7 @@ namespace Customer.Api.Controllers
         [HttpGet("Address/{cep}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AddressDetailResponse))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> CreateCustomer([FromRoute] string cep)
         {
             var address = await _deliveryAddressService.GetAddressAsync(cep);
