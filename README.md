@@ -10,8 +10,9 @@ Neste projeto viso apresentar duas situações:
 	+ Endpoin de cadastro de cliente Pessoa Fisica e Pessoa Juridica
 
 **Sobre a execução do projeto**
+
 Pode executar o projeto por linha de comando através de
-				``` dotnet run --project Customer.Api ```
+``` dotnet run --project Customer.Api ```
 
 Também há opções locais de execução através dos perfis:
 + http ou https
@@ -19,6 +20,7 @@ Também há opções locais de execução através dos perfis:
 + Docker
 
 **Sobre a interface de utilização**
+
 No projeto há a disposição um JSON referente a uma collection de postman e o projeto também esta configurado com swagger.
 + Arquivo  [DTBemolDigital Collection](https://github.com/CavalheiroCosta/DTBemolDigital/blob/main/DTBemolDigital.postman_collection.json "DTBemolDigital Collection")
 
@@ -27,6 +29,7 @@ No projeto há a disposição um JSON referente a uma collection de postman e o 
 No projeto consta a "CustomerApi" que foi desenvolvida utilizando [Visual Studio 2022](https://visualstudio.microsoft.com/pt-br/vs/community/ "Visual Studio 2022") em .NET 7 e utilizando Swagger para documentação parcial de api.
 
 **Sobre as features**
+
 Foram implementados três features:
 + Busca de dados endereços utilizando o Cep `api/Customer/Address/{Cep}` recebendo o valor do Cep pela rota.
 + Cadastro de clientes pessoa fisica através de `api/Customer/Person` recebendo json pelo body.
